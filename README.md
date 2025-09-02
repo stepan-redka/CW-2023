@@ -1,5 +1,5 @@
 # CW-2023
-<img width="1356" height="1372" alt="image" src="https://github.com/user-attachments/assets/6dcdfde4-063e-4777-ac7c-f4b156b3bc8e" />
+<img width="156" height="172" alt="image" src="https://github.com/user-attachments/assets/6dcdfde4-063e-4777-ac7c-f4b156b3bc8e" />
 
 **Course project built with Node.js**
 
