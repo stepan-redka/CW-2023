@@ -39,6 +39,7 @@ The application is configured to run with a single command using Docker:
 
 ```bash
 docker-compose up -d
+```
 
 ---
 
