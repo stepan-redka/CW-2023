@@ -1,88 +1,55 @@
-# CW-2023
+# Cinema Reservation System
+
 <img width="550" height="600" alt="image" src="https://github.com/user-attachments/assets/6dcdfde4-063e-4777-ac7c-f4b156b3bc8e" />
 
-**Course project built with Node.js**
+A server-side Node.js application for cinema seat reservations using a web interface.
 
-A classic server-side application that provides cinema seat reservation functionality through a simple web interface.
+---
 
-## Features
-- Server automatically handles reservation requests
-- Real-time seat booking system
-- MySQL database for persistent storage
-- Fully containerized with Docker
-- No local dependencies required
+### Project Structure
 
-## Tech Stack
-- Node.js & Express
-- MySQL 8.0
-- HTML, CSS, JavaScript
-- Docker & Docker Compose
+* **src/**: Main server logic and static client-side assets.
+* **views/**: HTML templates for the frontend.
+* **database/**: SQL scripts for database initialization.
+* **docker-compose.yml**: Orchestration for the app and MySQL database.
 
-## Project Structure
-```
-CW-2023/
-├── src/
-│   ├── server.js          # Main application server
-│   └── public/
-│       ├── css/           # Stylesheets
-│       └── js/            # Client-side scripts
-├── views/                 # HTML templates
-├── database/
-│   └── init.sql          # Database initialization
-├── docker-compose.yml    # Docker orchestration
-├── Dockerfile           # Container definition
-└── package.json
-```
+---
 
-## Quick Start (ONE COMMAND)
+### Features
+
+* **Automated Reservations**: Server-side handling of booking requests.
+* **Persistent Storage**: MySQL integration for saving seat states.
+* **Containerized Environment**: Full Docker support for easy deployment.
+* **Zero Local Setup**: Runs entirely within containers without needing local Node.js.
+
+---
+
+### Tech Stack
+
+* **Backend**: Node.js, Express.
+* **Database**: MySQL 8.0.
+* **Frontend**: HTML, CSS, JavaScript.
+* **Infrastructure**: Docker, Docker Compose.
+
+---
+
+### Quick Start
+
+The application is configured to run with a single command using Docker:
 
 ```bash
 docker-compose up -d
-```
 
-That's it! The application will be available at `http://localhost:8000`
+---
 
-**Note:** Default credentials are set in docker-compose.yml. The app runs entirely in Docker - no local Node.js or npm installation required.
-
-## Docker Commands
-
-```bash
-# Start services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-
-# Restart services
-docker-compose restart
-
-# Clean up everything (including data)
-docker-compose down -v
-```
-
-## Configuration
-
-Default environment variables are set in [docker-compose.yml](docker-compose.yml):
-- `DB_PASSWORD`: cinemapass123
-- `DB_NAME`: KursovaDB
-- `PORT`: 8000
-
-To override, create a `.env` file:
-```bash
-DB_PASSWORD=yourpassword
-PORT=8000
-```
-
-## Development
+### Manual Setup
 
 For local development without Docker:
 
-```bash
-npm install
-npm run dev
-```
+1. **Prerequisites**: Node.js and MySQL server installed locally
+2. **Install dependencies**: `npm install`
+3. **Database setup**: Import `database/init.sql` into your MySQL instance
+4. **Configuration**: Update `.env` file with your local database credentials
+5. **Run application**: `npm start`
 
-Ensure MySQL is running locally and update database credentials in `.env` file.
+The server will start on the configured port (default: 8000).
