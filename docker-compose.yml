@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: cinema-booking-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-cinemapass123}
+      MYSQL_DATABASE: ${DB_NAME:-KursovaDB}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD:-cinemapass123}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: cinema-booking-app
+    restart: always
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: 8000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: ${DB_PASSWORD:-cinemapass123}
+      DB_NAME: ${DB_NAME:-KursovaDB}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./src:/app/src
+      - ./views:/app/views
+
+volumes:
+  mysql_data:
