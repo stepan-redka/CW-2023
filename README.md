@@ -2,7 +2,7 @@
 
 <img width="550" height="600" alt="image" src="https://github.com/user-attachments/assets/6dcdfde4-063e-4777-ac7c-f4b156b3bc8e" />
 
-A server-side Node.js application for cinema seat reservations using a web interface.
+A server-side Node.js application, for cinema seat reservations using a web interface.
 
 ---
 
